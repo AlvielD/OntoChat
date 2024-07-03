@@ -14,7 +14,7 @@ import rdflib
 from rdflib import Graph
 from rdflib.namespace import RDF, RDFS, OWL
 
-from ontochat.queries import NE_QUERY
+from queries import NE_QUERY
 
 logger = logging.getLogger("ontochat.verbaliser")
 
