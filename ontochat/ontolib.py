@@ -64,13 +64,10 @@ class ChatInterface:
             pipeline = transformers.pipeline(
                 "text-generation",
                 model=model,
-                model_kwargs={"torch_dtype": torch.bfloat16}, device_map="auto"
+                model_kwargs={"torch_dtype": torch.bfloat16},
+                device_map="auto"
             )
-            prompt = ''
-            for msg in messages:
-                prompt += msg['content'] + '\n'
-            print(prompt)
-            return pipeline(prompt)
+            return pipeline(messages, max_new_tokens=8192)
 
 
 def extract_competency_questions(onto_verbalisation: str,
